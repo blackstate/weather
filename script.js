@@ -45,6 +45,7 @@ const display = (() => {
 
   // edit elements' innerHTML to display weather
   const show = async () => {
+    // show loading GIF while waiting
     showLoading();
 
     // get weather from weather module passing input value
@@ -81,6 +82,7 @@ const display = (() => {
     results.classList.remove('hide');
   };
 
+  // shows a loading GIF
   const showLoading = () => {
     let img = document.createElement('img');
     img.src = './loading.gif';
@@ -99,6 +101,13 @@ const display = (() => {
   // load events
   const render = async () => {
     button.addEventListener('click', show);
+
+    // add 'Enter' event listener
+    cityName.addEventListener('keyup', (event) => {
+      if (event.keyCode === 13) {
+        button.click();
+      }
+    });
   };
 
   return {
