@@ -45,6 +45,8 @@ const display = (() => {
 
   // edit elements' innerHTML to display weather
   const show = async () => {
+    showLoading();
+
     // get weather from weather module passing input value
     let weatherData = await weather.get(cityName.value);
     console.log(weatherData);
@@ -67,9 +69,30 @@ const display = (() => {
   const showError = () => {
     let img = document.createElement('img');
     img.src = './sad.png';
+
     // placeholder
+    city.innerHTML = '';
+    country.innerHTML = '';
+    temp.innerHTML = '';
+    // placeholder append
     city.appendChild(img);
+
     desc.innerHTML = 'Error! Double check city name.';
+    results.classList.remove('hide');
+  };
+
+  const showLoading = () => {
+    let img = document.createElement('img');
+    img.src = './loading.gif';
+
+    // placeholder
+    city.innerHTML = '';
+    country.innerHTML = '';
+    temp.innerHTML = '';
+    // placeholder append
+    city.appendChild(img);
+
+    desc.innerHTML = 'Loading';
     results.classList.remove('hide');
   };
 
