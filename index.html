@@ -19,11 +19,25 @@
   </head>
   <body>
     <div class="header">weather</div>
+
     <div class="input">
-      <input type="text" placeholder="City name" id="cityName" />
-      <input type="submit" id="getButton" value="Get weather" />
+      <label class="label" for="cityName">City</label>
+      <div style="display: flex; align-items: center;">
+        <input type="text" placeholder="City name" id="cityName" />
+        <input type="submit" id="getButton" value="Get" />
+      </div>
     </div>
 
+    <div class="hide results">
+      <div class="results-header">
+        <div class="city"></div>
+        <div class="country"></div>
+      </div>
+
+      <div class="temp"></div>
+
+      <div class="description"></div>
+    </div>
     <script src="script.js" async defer></script>
   </body>
 </html>
